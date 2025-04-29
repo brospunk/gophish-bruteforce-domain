@@ -10,6 +10,6 @@ the codes do:
 - automated --> sends passwords to the login page with the tor connection
                (if there is an error in sending or a "Too Many Request" it acquires a new cookie, new CSRF Token and new Tor IP)
 
-
+***********************************************************
 - the program continues until it finds the password
 - the password is found when it receives a status code like 302
