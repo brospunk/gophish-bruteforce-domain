@@ -87,7 +87,7 @@ def main():
                     r = requests.post(url=header['Referer'], proxies=proxies, headers=header, data=payload, timeout=10)
 
                     print("[&] Status Code: ", str(r.status_code))
-                    if r.status_code == 302:
+                    if r.status_code >= 300 and r.status_code < 400: # 302 è quella default corretta...
                         print(f"[+++] Credenziali Trovate!\n[$] {payload}")
                         return payload
                     elif "Forbidden - CSRF token invalid" in str(r.text):
