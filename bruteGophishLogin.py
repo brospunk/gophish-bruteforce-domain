@@ -46,7 +46,14 @@ def main():
     }
 
     header["Host"] = input("[+] Inserisci il dominio del sito gophish (www.example.com): ")
-    header["Origin"] = f"https://{header['Host']}" # Qui puoi modificare HTTPS con HTTP
+    while True:
+        choose = input("http or https ? : ")
+        if choose == 'http':
+            header["Origin"] = f"http://{header['Host']}" # Qui puoi modificare HTTPS con HTTP
+            break
+        elif choose == 'https':
+            header["Origin"] = f"https://{header['Host']}" # Qui puoi modificare HTTPS con HTTP
+            break
     header["Referer"] = f"{header['Origin']}/login?next=%2F"
 
     def acquisizione_Cookie_CSRFToken():
